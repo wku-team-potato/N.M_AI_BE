@@ -1,0 +1,27 @@
+# Git 관련 파일
+.git
+.gitignore
+
+# Python 관련 파일
+__pycache__/
+*.py[cod]
+
+# Docker 관련 파일
+Dockerfile~
+.dockerignore
+
+# IDE/Editor 관련 파일
+.vscode/
+.idea/
+*.swp
+
+# 이미지 관련 디렉토리 (프로젝트에 따라 필요 시 제외)
+img2/
+resized_imgs/
+
+# 텍스트 파일 (필요하면 제외하지 않을 수도 있음)
+*.txt
+!requirements.txt
+
+# Python 가상환경 디렉토리
+venv/

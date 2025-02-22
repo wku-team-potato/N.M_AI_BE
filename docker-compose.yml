@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai_server  # Django 컨테이너 이름
+    ports:
+      - "8000:8000"
+    networks:
+      - ai_network  # 동일 네트워크에 포함
+    volumes:
+      - static_volume:/app/static  # 정적 파일 볼륨 추가
+    environment:
+      - DJANGO_SECRET_KEY=secret
+      - DJANGO_DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=*
+    image: localhost:5000/ai-server-django:latest
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: nginx_server  # Nginx 컨테이너 이름
+    ports:
+      - "80:80"
+    networks:
+      - ai_network  # 동일 네트워크에 포함
+    depends_on:
+      - django
+    volumes:
+      - static_volume:/app/static  # Django와 공유된 정적 파일 볼륨 마운트
+    image: localhost:5000/ai-server-nginx:latest
+
+networks:
+  ai_network:
+    driver: bridge  # 브릿지 네트워크 사용
+
+volumes:
+  static_volume:
