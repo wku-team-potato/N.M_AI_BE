@@ -2,6 +2,9 @@
 - YOLOv8 기반 객체 탐지 모델 API를 제공하는 백엔드 서버
 - Django Rest Framework를 사용하여 API 서버 구축
 
+## 시스템 구성도
+![시스템 구성도](./assets/images/system_architecture.png)
+
 ## 프로젝트 구조
 ```
 N.M_AI_BE
