@@ -30,4 +30,4 @@ N.M_AI_BE
 </p>
 
 ## 문서
-[API 문서](./assets/docs/AI_BE_API_DOCS.pdf)
+- [API 문서](./assets/docs/AI_BE_API_DOCS.pdf)
